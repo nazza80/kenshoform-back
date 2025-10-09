@@ -34,6 +34,8 @@ from wger.core.views import (
     weight_units,
 )
 
+# Import health view
+from wger.core.views.health import health
 
 # sub patterns for languages
 patterns_language = [
@@ -216,4 +218,7 @@ urlpatterns = [
         include((patterns_repetition_units, 'repetition-unit'), namespace='repetition-unit'),
     ),
     path('weight-unit/', include((patterns_weight_units, 'weight-unit'), namespace='weight-unit')),
+
+    # HEALTHCHECK endpoint (aggiunto)
+    path('health/', health, name='health'),
 ]
